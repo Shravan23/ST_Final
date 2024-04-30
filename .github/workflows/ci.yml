@@ -45,14 +45,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y unzip
-        CHROME_VERSION=$(google-chrome --version | sed -E 's/Google Chrome ([0-9]+)\..*/\1/')
-        CHROMEDRIVER_URL="http://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION"
-        CHROMEDRIVER_RELEASE=$(curl --silent --fail $CHROMEDRIVER_URL)
-        if [ -z "$CHROMEDRIVER_RELEASE" ]; then
-          echo "Fallback to default ChromeDriver version"
-          CHROMEDRIVER_RELEASE="LATEST_RELEASE" # Specify a known working version
-        fi
-        curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip"
+        CHROMEDRIVER_VERSION="94.0.4606.61"  # Specify a known working version
+        curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
         cd /tmp
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin/chromedriver
