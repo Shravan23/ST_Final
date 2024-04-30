@@ -20,7 +20,7 @@ def get_chrome_options():
 @given('I am on the registration page')
 def step_impl(context):
     context.browser = webdriver.Chrome(options=get_chrome_options())  # Ensure ChromeDriver is installed and in PATH
-    context.browser.get('http://127.0.0.1:5000/register')
+    context.browser.get('http://localhost:8080/register')
 
 @when('I enter valid registration details')
 def step_impl(context):

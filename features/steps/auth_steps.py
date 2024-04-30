@@ -17,7 +17,7 @@ def get_chrome_options():
 @given('I am on the login page')
 def step_impl(context):
     context.browser = webdriver.Chrome(options=get_chrome_options())  # Ensure ChromeDriver is installed and in PATH
-    context.browser.get('http://127.0.0.1:5000/login')
+    context.browser.get('http://localhost:8080/login')
 
 @when('I enter valid credentials')
 def step_impl(context):
