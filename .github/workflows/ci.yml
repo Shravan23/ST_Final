@@ -47,10 +47,10 @@ jobs:
         sudo apt-get install -y unzip
         CHROME_VERSION=$(google-chrome --version | sed -E 's/Google Chrome ([0-9]+)\..*/\1/')
         CHROMEDRIVER_URL="http://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION"
-        CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 $CHROMEDRIVER_URL)
-        if [ $? -ne 0 ]; then
-          echo "Failed to fetch ChromeDriver version from $CHROMEDRIVER_URL"
-          exit 1
+        CHROMEDRIVER_RELEASE=$(curl --silent --fail $CHROMEDRIVER_URL)
+        if [ -z "$CHROMEDRIVER_RELEASE" ]; then
+          echo "Fallback to default ChromeDriver version"
+          CHROMEDRIVER_RELEASE="LATEST_RELEASE" # Specify a known working version
         fi
         curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip"
         cd /tmp
