@@ -59,6 +59,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install selenium behave
+    - name: Start Flask application
+      run: |
+        export FLASK_APP=run.py
+        flask run &
+      background: true
+
+    - name: Wait for Flask to start
+      run: |
+        until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
+          printf '.'
+          sleep 5
+        done
 
     - name: Run Behave tests
       run: |
