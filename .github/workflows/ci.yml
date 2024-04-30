@@ -62,8 +62,7 @@ jobs:
     - name: Start Flask application
       run: |
         export FLASK_APP=run.py
-        flask run & background: true
-      # background: true
+        nohup flask run > /dev/null 2>&1 &
 
     - name: Wait for Flask to start
       run: |
