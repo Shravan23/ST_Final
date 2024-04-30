@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+behave
+selenium
+Werkzeug
+email-validator
