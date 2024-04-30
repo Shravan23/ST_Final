@@ -62,7 +62,9 @@ jobs:
     - name: Start Flask application
       run: |
         export FLASK_APP=run.py
-        nohup flask run > /dev/null 2>&1 &
+        nohup flask run --host=0.0.0.0 --port=8080 > /dev/null 2>&1 &
+    - name: Display Flask Output
+      run: cat flask_output.txt
 
     - name: Wait for Flask to start
       run: |
