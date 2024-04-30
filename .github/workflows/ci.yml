@@ -49,7 +49,7 @@ jobs:
         curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.91/linux64/chromedriver-linux64.zip"
         cd /tmp
         unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/chromedriver
+        sudo mv chromedriver-linux64 /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
         chromedriver --version
 
