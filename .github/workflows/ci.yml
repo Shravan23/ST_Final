@@ -59,10 +59,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install selenium behave
+
     - name: Start Flask application
       run: |
         export FLASK_APP=run.py
-        nohup flask run --host=0.0.0.0 --port=8080 > /dev/null 2>&1 &
+        nohup flask run > flask_output.txt 2>&1 &
+
+    - name: Sleep to allow Flask to initialize
+      run: sleep 10
+
     - name: Display Flask Output
       run: cat flask_output.txt
 
