@@ -72,7 +72,7 @@ jobs:
   
     - name: Run tests with XML report
       run: |
-        python -m unittest discover -s tests -v --buffer --failfast --testrunner=xmlrunner.XMLTestRunner(output='test-reports')
+        python -m unittest discover -s tests -v --buffer --failfast --testrunner="xmlrunner.XMLTestRunner(output='test-reports')"
     - name: Upload test report
       uses: actions/upload-artifact@v2
       with:
