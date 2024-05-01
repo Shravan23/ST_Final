@@ -26,8 +26,8 @@ def step_impl(context):
     password_field = context.browser.find_element(By.ID, 'password')
     submit_button = context.browser.find_element(By.ID, 'submit')
 
-    username_field.send_keys('pant')
-    password_field.send_keys('pant123')
+    username_field.send_keys('testuser')
+    password_field.send_keys('password123')
     submit_button.click()
 
 @then('I should be redirected to the profile page')
