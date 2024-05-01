@@ -6,3 +6,4 @@ selenium
 Werkzeug
 email-validator
 flask-wtf
+# unittest

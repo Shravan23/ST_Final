@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Instance folder for Flask
+instance/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.htmlcov/
+.pytest_cache/
+
+# Flask session tokens
+.flask_session/
+
+# Environment variables
+.env
+
+# Database files
+*.db
+*.sqlite3
+
+# System-specific IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
