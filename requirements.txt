@@ -7,3 +7,4 @@ Werkzeug
 email-validator
 flask-wtf
 # unittest
+xmlrunner
