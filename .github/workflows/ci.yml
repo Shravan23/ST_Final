@@ -72,13 +72,13 @@ jobs:
   
     - name: Run tests with XML report
       run: |
-        python -m xmlrunner discover -s tests -o test-reports/
+        python -m unittest discover -s tests -v --buffer --failfast --testrunner=xmlrunner.XMLTestRunner(output='test-reports')
     - name: Upload test report
       uses: actions/upload-artifact@v2
       with:
         name: unittest-reports
-        path: test-reports/ 
-  
+        path: test-reports/
+    
     - name: Run Behave tests
       run: |
         behave --junit --junit-directory=behave-reports
